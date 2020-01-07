@@ -1,4 +1,4 @@
-CREATE TABLE public.commandments
+﻿CREATE TABLE public.commandments
 (
     my_order integer NOT NULL,
     mitzvah character varying(80) COLLATE pg_catalog."default" NOT NULL,
@@ -11,6 +11,7 @@ CREATE TABLE public.commandments
     man_v character varying(10) COLLATE pg_catalog."default" NOT NULL,
     gender character varying(10) COLLATE pg_catalog."default" NOT NULL,
     live_in_israel character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    kohen character varying(1) COLLATE pg_catalog."default" NOT NULL,
     not_a_vegetarian character varying(1) COLLATE pg_catalog."default" NOT NULL,
     judge character varying(1) COLLATE pg_catalog."default" NOT NULL,
     farmer character varying(1) COLLATE pg_catalog."default" NOT NULL,
@@ -29,7 +30,6 @@ CREATE TABLE public.commandments
     criminal character varying(1) COLLATE pg_catalog."default",
     intimacy character varying(1) COLLATE pg_catalog."default",
     idolatry character varying(1) COLLATE pg_catalog."default",
-    kohen character varying(1) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT commandments_pkey PRIMARY KEY (my_order)
 )
 WITH (

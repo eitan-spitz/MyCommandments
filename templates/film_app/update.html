@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+{% include 'partials/navbar_homepage.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container w-50 overflow-auto" style="margin-bottom: 70px; margin-top: 70px">
+    <div class="card mx-auto">
+        <div class="card-body">
+            {% if 'updatefilm' in request.path %}
+            <h3>Update a Film</h3>
+            {% elif 'update_director' in request.path %}
+            <h3>Update Director</h3>
+            {% elif 'addfilm' in request.path %}
+            <h3>Add a Film</h3>
+            {% else %}
+            <h3>Add a Director</h3>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if 'updatefilm' in request.path %}
+                <button type="submit" class="btn btn-primary">Update Film</button>
+                {% elif 'update_director' in request.path %}
+                <button type="submit" class="btn btn-primary">Update Director</button>
+                {% elif 'addfilm' in request.path %}
+                <button type="submit" class="btn btn-primary">Add Film</button>
+                {% else %}
+                <button type="submit" class="btn btn-primary">Add Director</button>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}

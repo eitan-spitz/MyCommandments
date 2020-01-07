@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+{% include 'partials/navbar_homepage.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container w-50 overflow-auto" style="margin-bottom: 70px; margin-top: 70px">
+    <div class="card mx-auto">
+        <div class="card-body">
+            <h3>Profile</h3>
+            <table>
+                <tbody>
+                <tr><td>username : {{ user.username }}</td></tr>
+                    <tr><td>First Name: {{ user.first_name }}</td></tr>
+                    <tr><td>Last Name: {{ user.last_name }}</td></tr>
+                    <tr><td>Email: {{ user.email }}</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
