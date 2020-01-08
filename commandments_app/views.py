@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import DetailView, CreateView
 from commandments_app.forms import PersonalCommandmentsForm
 
-from account_app.models import Commandments
+from account_app.models import Commandments, UserFiltering
 
 # Create your views here.
 from commandments_app.filters import CommandmentsFilter, PersonalFilter
@@ -22,7 +22,8 @@ class CommandmentsFiltering(CreateView):
         return form
 
 def homepage(request):
-    commandments = Commandments.objects.all() # filter(kohen=user.info.kohen,) need to add here filtering functionality
+    filter = UserFiltering.objects.filter(user=request.user)[0]
+    commandments = Commandments.objects.filter(**filter.get_dict()) # need to add here filtering functionality
     return render(request, 'commandments_app/homepage.html', {'commandments': commandments})
 
 def all_commandments(request):

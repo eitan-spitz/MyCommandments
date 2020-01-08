@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.forms.models import model_to_dict
 
 # Create your models here.
 
@@ -35,12 +36,13 @@ class Commandments(models.Model):
     intimacy = models.CharField(max_length=1, blank=True, null=True)
     idolatry = models.CharField(max_length=1, blank=True, null=True)
 
+
     class Meta:
         managed = False
         db_table = 'commandments'
 
 class UserFiltering(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     live_in_israel = models.CharField(max_length=1)
     kohen = models.CharField(max_length=1)
     not_a_vegetarian = models.CharField(max_length=1)
@@ -51,3 +53,6 @@ class UserFiltering(models.Model):
     employer = models.CharField(max_length=1)
     lend = models.CharField(max_length=1)
     sorcery = models.CharField(max_length=1)
+
+    def get_dict(self):
+        return model_to_dict(self,exclude=('id','user'))
