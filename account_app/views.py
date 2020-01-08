@@ -18,7 +18,7 @@ def signup(request):
                 return redirect(reverse('account_app:signup'))
             user = User.objects.create_user(**form.cleaned_data)
             messages.info(request, f'{user.username} successfully created !')
-            return redirect(reverse('account_app:login'))
+            return redirect(reverse('commandments_app:commandments_filtering'))
     else:
         form = SignUpForm()
 
@@ -33,7 +33,7 @@ def login_user(request):
             if user:
                 login(request, user)
                 messages.info(request, 'Successfully logged in!')
-                return redirect(reverse('account_app:profile'))
+                return redirect(reverse('commandments_app:homepage'))
             else:
                 messages.error(request, 'Bad authentication....')
                 return redirect(reverse('account_app:login'))

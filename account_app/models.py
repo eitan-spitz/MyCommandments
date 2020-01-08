@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -37,3 +38,16 @@ class Commandments(models.Model):
     class Meta:
         managed = False
         db_table = 'commandments'
+
+class UserFiltering(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    live_in_israel = models.CharField(max_length=1)
+    kohen = models.CharField(max_length=1)
+    not_a_vegetarian = models.CharField(max_length=1)
+    judge = models.CharField(max_length=1)
+    farmer = models.CharField(max_length=1)
+    married = models.CharField(max_length=1)
+    children = models.CharField(max_length=1)
+    employer = models.CharField(max_length=1)
+    lend = models.CharField(max_length=1)
+    sorcery = models.CharField(max_length=1)

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+{% include 'partials/navbar_homepage.html' %}
+{% endblock %}
+
+{% block content %}
+<h1 style="margin-top: 70px">Commandment</h1><hr>
+<p>Our Order: {{ commandments.my_order }}, Order in Minchat Chinuch: <a href="https://www.sefaria.org.il/Sefer_HaChinukh.{{ commandments.chinuch_order }}?lang=en" target="_blank">{{ commandments.chinuch_order }}</a></p>
+<p><strong>Commandment:</strong> {{ commandments.mitzvah }}</p>
+<p><strong>Source:</strong> {{ commandments.book }} ({{ commandments.parsha }}) {{ commandments.chapter }}:{{ commandments.verse }}</p>
+<p><strong>More Details:</strong></p>
+<P>{% if commandments.p_n == "N" %}
+Negative
+{% else %}
+Positive
+{% endif %}Commandment</P>
+<p>Commandment between Man and {{ commandments.man_v }}</p>
+<p>Applicable to
+{% if commandments.gender == "Male" %}
+Men
+{% elif commandments.gender == "Female" %}
+Women
+{% elif commandments.gender == "Both" %}
+Everyone
+{% endif %}</p>
+{% endblock %}
+
+
+
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}

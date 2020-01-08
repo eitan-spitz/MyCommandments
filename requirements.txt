@@ -1,4 +1,5 @@
-django>=3.0.1
+django>=3.0.2
 psycopg2-binary
 django-bootstrap4
 ipython
+django-filter
