@@ -37,7 +37,7 @@ def filter_down(dictionary): # filters out the y answers so the filtering can wo
 def homepage(request):
     user_info = UserFiltering.objects.filter(user=request.user)[0] # finds the user info and gets the answers from the login form
     filter = filter_down(user_info.get_dict())
-    commandments = Commandments.objects.filter(**filter)  # filters the commandments by the answers to form where the answer was no
+    commandments = Commandments.objects.filter(Q(**filter) & (Q(gender='Both')|Q(gender=user_info.gender)))  # filters the commandments by the answers to form where the answer was no
     return render(request, 'commandments_app/homepage.html', {'commandments': commandments})
 
 def all_commandments(request):

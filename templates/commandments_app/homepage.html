@@ -9,23 +9,26 @@
 
 
 <h1 style="margin-top: 70px">Commandments</h1><hr>
-{% for commandment in commandments %}
-<div class="container" style="margin-top: 25px">
-    <div class="card">
-        <div class="card-body">
-            Order: {{ commandment.my_order }}<br>
-            Mitzvah: {{ commandment.mitzvah }}<br>
-            Book: {{ commandment.book }}<br>
-            Parsha: {{ commandment.parsha }}<br>
-            Gender: {{ commandment.gender }}<br>
-            <a class="btn btn-warning" href="{% url 'commandments_app:mitzvah_details' commandment.pk %}">More Info</a>
-            {% if user.is_superuser %}
-                <p>Hello God</p>
-            {% endif %}
+<div class="row">
+    {% for commandment in commandments %}
+    <div class="col-sm-4">
+        <div class="container" style="margin-top: 25px">
+            <div class="card">
+                <div class="card-body">
+                    Order: {{ commandment.my_order }}<br>
+                    Commandment: {{ commandment.mitzvah }}<br>
+                    Book: {{ commandment.book }}<br>
+                    Parsha: {{ commandment.parsha }}<br>
+                    <a class="btn btn-warning" href="{% url 'commandments_app:mitzvah_details' commandment.pk %}">More Info</a>
+                    {% if user.is_superuser %}
+                        <p>Hello God</p>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock %}
 
 {% block footer %}

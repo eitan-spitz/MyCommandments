@@ -53,6 +53,7 @@ class UserFiltering(models.Model):
     employer = models.CharField(verbose_name='Do you employ workers?', max_length=1)
     lend = models.CharField(verbose_name='Do you often lend money?', max_length=1)
     sorcery = models.CharField(verbose_name='Do you practice sorcery?', max_length=1)
+    gender = models.CharField(max_length=10, default='Both')
 
     def get_dict(self):
         return model_to_dict(self,exclude=('id','user'))

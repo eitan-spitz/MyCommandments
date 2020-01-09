@@ -3,11 +3,12 @@ from django.forms import ModelForm, Select, HiddenInput
 from account_app.models import Commandments, UserFiltering
 
 CHOICES = (('Y','Yes'),('N','No'))
+OPTIONS = (('Male','Male'),('Female','Female'))
 
 class PersonalCommandmentsForm(ModelForm):
     class Meta:
         model = UserFiltering
-        fields = ['user','live_in_israel','kohen','not_a_vegetarian','judge','farmer','married','children','employer','lend','sorcery']
+        fields = ['user','live_in_israel','kohen','not_a_vegetarian','judge','farmer','married','children','employer','lend','sorcery','gender']
         widgets = {
             'user': HiddenInput(),
             'live_in_israel': Select(choices=CHOICES, attrs={'class': 'form-control w-75', }),
@@ -20,4 +21,5 @@ class PersonalCommandmentsForm(ModelForm):
             'employer': Select(choices=CHOICES, attrs={'class': 'form-control w-75', }),
             'lend': Select(choices=CHOICES, attrs={'class': 'form-control w-75', }),
             'sorcery': Select(choices=CHOICES, attrs={'class': 'form-control w-75', }),
+            'gender': Select(choices=OPTIONS, attrs={'class': 'form-control w-75', }),
         }
