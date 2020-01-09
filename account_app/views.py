@@ -18,6 +18,8 @@ def signup(request):
                 return redirect(reverse('account_app:signup'))
             user = User.objects.create_user(**form.cleaned_data)
             messages.info(request, f'{user.username} successfully created !')
+            user_logged = authenticate(request, **form.cleaned_data)
+            login(request, user_logged)
             return redirect(reverse('commandments_app:commandments_filtering'))
     else:
         form = SignUpForm()
