@@ -43,16 +43,16 @@ class Commandments(models.Model):
 
 class UserFiltering(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    live_in_israel = models.CharField(max_length=1)
-    kohen = models.CharField(max_length=1)
-    not_a_vegetarian = models.CharField(max_length=1)
-    judge = models.CharField(max_length=1)
-    farmer = models.CharField(max_length=1)
-    married = models.CharField(max_length=1)
-    children = models.CharField(max_length=1)
-    employer = models.CharField(max_length=1)
-    lend = models.CharField(max_length=1)
-    sorcery = models.CharField(max_length=1)
+    live_in_israel = models.CharField(verbose_name='Do you live in Israel?', max_length=1)
+    kohen = models.CharField(verbose_name='Are you a Kohen?', max_length=1)
+    not_a_vegetarian = models.CharField(verbose_name='Do you eat meat?', max_length=1)
+    judge = models.CharField(verbose_name='Are you a judge?', max_length=1)
+    farmer = models.CharField(verbose_name='Are you a farmer?', max_length=1)
+    married = models.CharField(verbose_name='Are you married?', max_length=1)
+    children = models.CharField(verbose_name='Do you have children?', max_length=1)
+    employer = models.CharField(verbose_name='Do you employ workers?', max_length=1)
+    lend = models.CharField(verbose_name='Do you often lend money?', max_length=1)
+    sorcery = models.CharField(verbose_name='Do you practice sorcery?', max_length=1)
 
     def get_dict(self):
         return model_to_dict(self,exclude=('id','user'))
