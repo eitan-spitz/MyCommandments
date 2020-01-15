@@ -1,0 +1,31 @@
+body, html{
+    height: 100%;
+    margin: 0;
+}
+
+#con-body{
+    background-color: aqua;
+    color: black;
+}
+
+#over{
+    background-image: url(/static/images/mount_sinai.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: aqua;
+}
+
+#box{
+    height: 100%;
+}
+
+
+#text-in-box{
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+#footer{
+    color: white;
+}

@@ -1,15 +1,27 @@
 {% extends 'base.html' %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="/static/css/index.css" >
+{% endblock %}
+
 {% block navbar %}
 {% include 'partials/navbar_index.html' %}
 {% endblock %}
 
 
 {% block content %}
-<p> You are at the index, whatever that means</p>
+<div class="container-fluid" id="over">
+    <div class="row justify-content-center align-items-center" id="big-text">
+        <div class="col-6">
+            <h1 id="main-text">Welcome to <br>My Commandments</h1><br>
+            {% if not user.is_authenticated %}
+            <a class="btn btn-primary btn-lg" href="{% url 'account_app:signup' %}">Sign Up</a>
+            <a class="btn btn-primary btn-lg" href="{% url 'account_app:login' %}">Login</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 
-{% block footer %}
-{% include 'partials/footer.html' %}
-{% endblock %}
+

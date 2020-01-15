@@ -1,0 +1,39 @@
+body, html{
+    height: 100%;
+    margin: 0;
+}
+
+#con-body{
+    background-color: aqua;
+    color: black;
+}
+
+#top-text{
+    margin-top: 70px; 
+    text-align: center;
+}
+
+#over{
+    background-image: url(/static/images/mount_sinai.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: aqua;
+    height: 100%;
+}
+
+#row{
+    height: 100%;
+}
+
+#body-of-card{
+    width: 500px;
+}
+
+#over td, h3{
+    color: black;
+    text-align: center;
+}
+
+#footer{
+    color: white;
+}

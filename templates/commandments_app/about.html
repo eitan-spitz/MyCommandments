@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="/static/css/about.css" >
+{% endblock %}
+
+{% block navbar %}
+{% include 'partials/navbar_index.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid" id="over">
+    <div class="row justify-content-center align-items-center" id="box">
+        <div class="card">
+            <div class="card-body" id="text-in-box">
+                <p>
+                    <strong>About Us</strong><br>
+                    MyCommandments.com is an idea launched by a group of friends who<br>
+                    felt that the sacrosanct 613 Commandments was a fairly large number<br>
+                    to deal with. As such they determined to cut the number down to<br>
+                    something more manageable, relevant and personal. The commandments<br>
+                    have been organized according to their best understanding of Jewish<br>
+                    Orthodox tradition. This site is the result of that effort.<br>
+                    Comments, corrections and suggestions are welcome.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}

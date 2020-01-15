@@ -4,6 +4,8 @@ from commandments_app import views
 app_name = 'commandments_app'
 urlpatterns = [
     path('', views.index, name='index'),
+    path('about/', views.about, name='about'),
+    path('faq/', views.faq, name='faq'),
     path('homepage/', views.homepage, name='homepage'),
     path('all_commandments/', views.all_commandments, name='all_commandments'),
     path('commandments_filtering/', views.CommandmentsFiltering.as_view(), name='commandments_filtering'),

@@ -15,6 +15,12 @@ from commandments_app.filters import CommandmentsFilter, PersonalFilter
 def index(request):
     return render(request, 'commandments_app/index.html')
 
+def about(request):
+    return render(request, 'commandments_app/about.html')
+
+def faq(request):
+    return render(request, 'commandments_app/faq.html')
+
 class CommandmentsFiltering(CreateView):
     form_class = PersonalCommandmentsForm
     template_name = 'commandments_app/commandments_filtering.html'

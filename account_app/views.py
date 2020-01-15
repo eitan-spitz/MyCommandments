@@ -48,8 +48,7 @@ def login_user(request):
 
 def logout_view(request):
     logout(request)
-    messages.info(request, 'Logged out')
-    return redirect(reverse('account_app:login'))
+    return redirect(reverse('commandments_app:index'))
 
 @login_required
 def profile(request):

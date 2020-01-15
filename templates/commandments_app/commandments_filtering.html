@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="/static/css/filtering.css" >
+{% endblock %}
+
 
 {% block content %}
-<div class="container w-50 overflow-auto" style="margin-bottom: 70px; margin-top: 70px">
-    <div class="card mx-auto">
-        <div class="card-body">
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+<div class="container-fluid mb-5 mt-3" id="over">
+    <div class="container w-50 overflow-auto" style="margin-bottom: 70px; margin-top: 70px">
+        <div class="card mx-auto">
+            <div class="card-body" id="body-of-card">
+                <h2>Please Fill Out This Form:</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
