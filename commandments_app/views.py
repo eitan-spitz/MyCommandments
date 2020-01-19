@@ -9,7 +9,7 @@ from commandments_app.forms import PersonalCommandmentsForm
 from account_app.models import Commandments, UserFiltering
 
 # Create your views here.
-from commandments_app.filters import CommandmentsFilter, PersonalFilter
+from commandments_app.filters import CommandmentsFilter, PersonalFilter, HopmepageFilter
 
 
 def index(request):
@@ -44,7 +44,9 @@ def homepage(request):
     user_info = UserFiltering.objects.filter(user=request.user)[0] # finds the user info and gets the answers from the login form
     filter = filter_down(user_info.get_dict())
     commandments = Commandments.objects.filter(Q(**filter) & (Q(gender='Both')|Q(gender=user_info.gender)))  # filters the commandments by the answers to form where the answer was no
-    return render(request, 'commandments_app/homepage.html', {'commandments': commandments})
+    amount = len(commandments)
+    page_filter = CommandmentsFilter(request.GET, commandments)
+    return render(request, 'commandments_app/homepage.html', {'commandments': commandments, 'amount': amount, 'filter': page_filter})
 
 def all_commandments(request):
     commandments = Commandments.objects.all()
