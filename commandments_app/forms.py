@@ -1,6 +1,6 @@
 from django.forms import ModelForm, Select, HiddenInput
 
-from account_app.models import Commandments, UserFiltering
+from account_app.models import UserFiltering
 
 CHOICES = (('Y','Yes'),('N','No'))
 OPTIONS = (('Male','Male'),('Female','Female'), ('Both','Other'))

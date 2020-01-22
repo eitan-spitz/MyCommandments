@@ -25,21 +25,22 @@ class Commandments(models.Model):
     employer = models.CharField(max_length=1)
     lend = models.CharField(max_length=1)
     sorcery = models.CharField(max_length=1)
-    social = models.BooleanField()
-    faith = models.BooleanField()
-    ritual = models.BooleanField()
-    monetary = models.BooleanField()
-    speech = models.BooleanField()
-    holidays = models.BooleanField()
-    food = models.BooleanField()
-    criminal = models.BooleanField()
-    intimacy = models.BooleanField()
-    idolatry = models.BooleanField()
+    social = models.BooleanField(default=False)
+    faith = models.BooleanField(default=False)
+    ritual = models.BooleanField(default=False)
+    monetary = models.BooleanField(default=False)
+    speech = models.BooleanField(default=False)
+    holidays = models.BooleanField(default=False)
+    food = models.BooleanField(default=False)
+    criminal = models.BooleanField(default=False)
+    intimacy = models.BooleanField(default=False)
+    idolatry = models.BooleanField(default=False)
 
 
     class Meta:
         managed = False
         db_table = 'commandments'
+        ordering = ['my_order']
 
 class UserFiltering(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

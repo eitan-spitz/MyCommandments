@@ -41,11 +41,11 @@ def filter_down(dictionary): # filters out the y answers so the filtering can wo
 
 
 def homepage(request):
-    user_info = UserFiltering.objects.filter(user=request.user)[0] # finds the user info and gets the answers from the login form
+    user_info = UserFiltering.objects.get(user=request.user) # finds the user info and gets the answers from the login form
     filter = filter_down(user_info.get_dict())
     commandments = Commandments.objects.filter(Q(**filter) & (Q(gender='Both')|Q(gender=user_info.gender)))  # filters the commandments by the answers to form where the answer was no
     amount = len(commandments)
-    page_filter = CommandmentsFilter(request.GET, commandments)
+    page_filter = HopmepageFilter(request.GET, commandments)
     return render(request, 'commandments_app/homepage.html', {'commandments': commandments, 'amount': amount, 'filter': page_filter})
 
 def all_commandments(request):
