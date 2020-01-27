@@ -15,8 +15,15 @@
     <h1 id="top-text">My Commandments</h1>
     <br>
         <form method="get">
-            {{ filter.form }}
-            <button type="submit">Search</button>
+            <small class="form-text text-muted">Currently, filtering can only work with one filter at a time, further implementation to come</small>
+            <div class="form-group row">
+            {{ filter.form.as_p }}
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
         </form>
     <hr>
     <h3>Total: {{ filter.qs.count }}</h3>

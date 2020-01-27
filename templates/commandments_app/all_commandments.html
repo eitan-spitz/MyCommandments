@@ -12,11 +12,13 @@
 {% block content %}
 <div class="container-fluid mb-5 mt-3" id="over">
 
-    <h1 id="top-text">All Commandments ({{ filter.qs.count }})</h1><hr>
+    <h1 id="top-text">All Commandments</h1><hr>
         <form method="get">
             {{ filter.form }}
             <button type="submit">Search</button>
         </form>
+    <hr>
+    <h3>Total: {{ filter.qs.count }}</h3>
     <div class="row">
         {% for commandment in filter.qs %}
         <div class="col-sm-3">

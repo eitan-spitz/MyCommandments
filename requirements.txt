@@ -2,5 +2,5 @@ django>=3.0.2
 psycopg2-binary
 django-bootstrap4
 ipython
-django-filter
+django-filters
 django-heroku

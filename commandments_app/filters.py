@@ -1,8 +1,5 @@
 import django_filters
-from django import forms
-from django.db import models
-from django.forms import Select
-from django_filters.widgets import BooleanWidget
+from django.forms import Select, TextInput
 
 from account_app.models import Commandments
 from commandments_app.forms import PersonalCommandmentsForm
@@ -13,6 +10,9 @@ class CommandmentsFilter(django_filters.FilterSet):
         model = Commandments
         fields = {
             'mitzvah': ['icontains'],
+        }
+        widgets = {
+            'mitzvah': TextInput(attrs={'class': 'form-control',}),
         }
 
 
@@ -27,16 +27,16 @@ class PersonalFilter(django_filters.FilterSet):
 CHOICES = (('Unknown','No Filter'),(True,'True'),(False,'False'))
 
 class HopmepageFilter(django_filters.FilterSet):
-    social = django_filters.BooleanFilter(field_name='social', widget=Select(choices=CHOICES, attrs={'class': 'form-control w-25', }))
-    faith = django_filters.BooleanFilter(field_name='faith', widget=Select(choices=CHOICES, attrs={'class': 'form-control w-25', }))
-    ritual = django_filters.BooleanFilter(field_name='ritual', widget=Select(choices=CHOICES, attrs={'class': 'form-control w-25', }))
-    monetary = django_filters.BooleanFilter(field_name='monetary', widget=Select(choices=CHOICES, attrs={'class': 'form-control w-25', }))
-    speech = django_filters.BooleanFilter(field_name='speech', widget=Select(choices=CHOICES, attrs={'class': 'form-control w-25', }))
-    holidays = django_filters.BooleanFilter(field_name='holidays', widget=Select(choices=CHOICES, attrs={'class': 'form-control w-25', }))
-    food = django_filters.BooleanFilter(field_name='food', widget=Select(choices=CHOICES, attrs={'class': 'form-control w-25', }))
-    criminal = django_filters.BooleanFilter(field_name='criminal', widget=Select(choices=CHOICES, attrs={'class': 'form-control w-25', }))
-    intimacy = django_filters.BooleanFilter(field_name='intimacy', widget=Select(choices=CHOICES, attrs={'class': 'form-control w-25', }))
-    idolatry = django_filters.BooleanFilter(field_name='idolatry', widget=Select(choices=CHOICES, attrs={'class': 'form-control w-25', }))
+    social = django_filters.BooleanFilter(field_name='social', widget=Select(choices=CHOICES, attrs={'class': 'form-control', }))
+    faith = django_filters.BooleanFilter(field_name='faith', widget=Select(choices=CHOICES, attrs={'class': 'form-control', }))
+    ritual = django_filters.BooleanFilter(field_name='ritual', widget=Select(choices=CHOICES, attrs={'class': 'form-control', }))
+    monetary = django_filters.BooleanFilter(field_name='monetary', widget=Select(choices=CHOICES, attrs={'class': 'form-control', }))
+    speech = django_filters.BooleanFilter(field_name='speech', widget=Select(choices=CHOICES, attrs={'class': 'form-control', }))
+    holidays = django_filters.BooleanFilter(field_name='holidays', widget=Select(choices=CHOICES, attrs={'class': 'form-control', }))
+    food = django_filters.BooleanFilter(field_name='food', widget=Select(choices=CHOICES, attrs={'class': 'form-control', }))
+    criminal = django_filters.BooleanFilter(field_name='criminal', widget=Select(choices=CHOICES, attrs={'class': 'form-control', }))
+    intimacy = django_filters.BooleanFilter(field_name='intimacy', widget=Select(choices=CHOICES, attrs={'class': 'form-control', }))
+    idolatry = django_filters.BooleanFilter(field_name='idolatry', widget=Select(choices=CHOICES, attrs={'class': 'form-control', }))
     class Meta:
         model = Commandments
         fields = ['social','faith','ritual','monetary','speech','holidays','food','criminal','intimacy','idolatry']
