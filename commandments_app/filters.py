@@ -42,18 +42,6 @@ class HopmepageFilter(django_filters.FilterSet):
         fields = ['social','faith','ritual','monetary','speech','holidays','food','criminal','intimacy','idolatry']
 
         exclude = ['my_order', 'mitzvah', 'chinuch_order', 'book', 'parsha', 'chapter', 'verse', 'p_n', 'man_v','gender','live_in_israel','kohen','not_a_vegetarian','judge','farmer','married','children','employer','lend','sorcery']
-        # widgets = {
-        #     'social': BooleanWidget()
-        # }
-
-        # filter_overrides = {
-        #     models.BooleanField: {
-        #         'filter_class': django_filters.BooleanFilter,
-        #         'extra': lambda f: {
-        #             'widget': forms.CheckboxInput,
-        #         },
-        #     },
-        # }
 
 
 NewFilter = django_filters.MultipleChoiceFilter()

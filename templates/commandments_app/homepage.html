@@ -15,7 +15,7 @@
     <h1 id="top-text">My Commandments</h1>
     <br>
         <form method="get">
-            <small class="form-text text-muted">Currently, filtering can only work with one filter at a time, further implementation to come</small>
+            <small class="form-text">Currently, filtering can only work with one filter at a time, further implementation to come</small>
             <div class="form-group row">
             {{ filter.form.as_p }}
             </div>
@@ -30,13 +30,10 @@
     <div class="row">
         {% for commandment in filter.qs %}
         <div class="col-lg-3">
-            <div class="container" style="margin-top: 25px">
+            <div class="container justify-content-center align-items-center" style="margin-top: 25px">
                 <div class="card">
                     <div class="card-body" id="con-body">
-                        Order: {{ commandment.my_order }}<br>
-                        Commandment: {{ commandment.mitzvah }}<br>
-                        Book: {{ commandment.book }}<br>
-                        Parsha: {{ commandment.parsha }}<br>
+                        {{ commandment.mitzvah }}<br>
                         <a class="btn btn-warning" href="{% url 'commandments_app:mitzvah_details' commandment.pk %}">More Info</a>
                         {% if user.is_superuser %}
                             <p>Hello God</p>

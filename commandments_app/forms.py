@@ -3,7 +3,7 @@ from django.forms import ModelForm, Select, HiddenInput
 from account_app.models import UserFiltering
 
 CHOICES = (('Y','Yes'),('N','No'))
-OPTIONS = (('Male','Male'),('Female','Female'), ('Both','Other'))
+OPTIONS = (('Male','Male'),('Female','Female'))
 
 class PersonalCommandmentsForm(ModelForm):
     class Meta:

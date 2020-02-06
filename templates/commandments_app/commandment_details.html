@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block stylesheet %}
-<link rel="stylesheet" href="/static/css/homepage.css" >
+<link rel="stylesheet" href="/static/css/about.css" >
 {% endblock %}
 
 {% block navbar %}
@@ -9,26 +9,32 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid mb-5 mt-3" id="over">
-    <h1 style="margin-top: 70px">Commandment</h1><hr>
-    <p>Our Order: {{ commandments.my_order }}, Order in Sefer Ha'Chinuch: <a href="https://www.sefaria.org.il/Sefer_HaChinukh.{{ commandments.chinuch_order }}?lang=en" target="_blank">{{ commandments.chinuch_order }}</a></p>
-    <p><strong>Commandment:</strong> {{ commandments.mitzvah }}</p>
-    <p><strong>Source:</strong> {{ commandments.book }} ({{ commandments.parsha }}) {{ commandments.chapter }}:{{ commandments.verse }}</p>
-    <p><strong>More Details:</strong></p>
-    <P>{% if commandments.p_n == "N" %}
-    Negative
-    {% else %}
-    Positive
-    {% endif %}Commandment</P>
-    <p>Commandment between Man and {{ commandments.man_v }}</p>
-    <p>Applicable to
-    {% if commandments.gender == "Male" %}
-    Men
-    {% elif commandments.gender == "Female" %}
-    Women
-    {% elif commandments.gender == "Both" %}
-    Everyone
-    {% endif %}</p>
+<div class="container-fluid" id="over">
+    <div class="row justify-content-center align-items-center" id="box">
+        <div class="card">
+            <div class="card-body" id="text-in-box">
+                <h1>Commandment {{ commandments.my_order }}</h1><hr>
+                <p>Order in Sefer Ha'Chinuch: <a href="https://www.sefaria.org.il/Sefer_HaChinukh.{{ commandments.chinuch_order }}?lang=en" target="_blank">{{ commandments.chinuch_order }}</a></p>
+                <p><strong>Commandment:</strong> {{ commandments.mitzvah }}</p>
+                <p><strong>Source:</strong> {{ commandments.book }} ({{ commandments.parsha }}) {{ commandments.chapter }}:{{ commandments.verse }}</p>
+                <p><strong>More Details:</strong></p>
+                <P>{% if commandments.p_n == "N" %}
+                Negative
+                {% else %}
+                Positive
+                {% endif %}Commandment</P>
+                <p>Commandment between Man and {{ commandments.man_v }}</p>
+                <p>Applicable to
+                {% if commandments.gender == "Male" %}
+                Men
+                {% elif commandments.gender == "Female" %}
+                Women
+                {% elif commandments.gender == "Both" %}
+                Everyone
+                {% endif %}</p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
