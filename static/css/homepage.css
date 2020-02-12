@@ -15,3 +15,13 @@ body{
     background-color: aqua;
     color: white;
 }
+.btn{
+    margin-top: 10px;
+}
+.card-body{
+    padding: 1rem;
+}
+
+.to-be-rounded{
+    border-radius:.50rem
+}

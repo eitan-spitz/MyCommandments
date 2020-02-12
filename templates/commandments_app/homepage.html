@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block stylesheet %}
-<link rel="stylesheet" href="/static/css/homepage.css" >
+<link defer rel="stylesheet" href="/static/css/homepage.css" >
 {% endblock %}
 
 {% block navbar %}
@@ -14,25 +14,46 @@
 
     <h1 id="top-text">My Commandments</h1>
     <br>
-        <form method="get">
-            <small class="form-text">Currently, filtering can only work with one filter at a time, further implementation to come</small>
-            <div class="form-group row">
-            {{ filter.form.as_p }}
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </div>
-            </div>
-        </form>
-    <hr>
+<!--        <form method="get">-->
+<!--            <small class="form-text">Currently, filtering can only work with one filter at a time, further implementation to come</small>-->
+<!--            <div class="form-group row">-->
+<!--            {{ filter.form.as_p }}-->
+<!--            </div>-->
+<!--            <div class="form-group row">-->
+<!--                <div class="col-sm-10">-->
+<!--                    <button type="submit" class="btn btn-primary">Search</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--    <hr>-->
     <h3>Total: {{ filter.qs.count }}</h3>
     <div class="row">
         {% for commandment in filter.qs %}
         <div class="col-lg-3">
-            <div class="container justify-content-center align-items-center" style="margin-top: 25px">
-                <div class="card">
-                    <div class="card-body" id="con-body">
+            <div class="container" style="margin-top: 25px">
+                <div class="card text-center border-dark to-be-rounded">
+                    {% if commandment.social and commandment.p_n == 'P'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #9315D8;">
+                    {% elif commandment.social and commandment.p_n == 'N'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #5F0491;">
+                    {% elif commandment.faith and commandment.p_n == 'P'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #263BDA;">
+                    {% elif commandment.faith and commandment.p_n == 'N'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #4C5DE0;">
+                    {% elif commandment.ritual and commandment.p_n == 'P'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #0AD3B7;">
+                    {% elif commandment.ritual and commandment.p_n == 'N'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #008876;">
+                    {% elif commandment.monetary and commandment.p_n == 'P'%}<div class=" to-be-rounded" id="con-body" style="background-color: #FF0C0C;">
+                    {% elif commandment.monetary and commandment.p_n == 'N'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #D90000;">
+                    {% elif commandment.speech and commandment.p_n == 'P'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #FF710C;">
+                    {% elif commandment.speech and commandment.p_n == 'N'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #D95A00;">
+                    {% elif commandment.holidays and commandment.p_n == 'P'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #FFFF0C;">
+                    {% elif commandment.holidays and commandment.p_n == 'N'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #D9D900;">
+                    {% elif commandment.food and commandment.p_n == 'P'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #A9F70C;">
+                    {% elif commandment.food and commandment.p_n == 'N'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #87CB00;">
+                    {% elif commandment.criminal and commandment.p_n == 'P'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #0BE70B;">
+                    {% elif commandment.criminal and commandment.p_n == 'N'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #00AE00;">
+                    {% elif commandment.intimacy and commandment.p_n == 'P'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #E80B88;">
+                    {% elif commandment.intimacy and commandment.p_n == 'N'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #AE0063;">
+                    {% elif commandment.idolatry and commandment.p_n == 'P'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #FFBC0C;">
+                    {% elif commandment.idolatry and commandment.p_n == 'N'%}<div class="card-body to-be-rounded" id="con-body" style="background-color: #D99D00;">
+                    {% else %}<div class="card-body to-be-rounded" id="con-body">
+                    {% endif %}
                         {{ commandment.mitzvah }}<br>
                         <a class="btn btn-warning" href="{% url 'commandments_app:mitzvah_details' commandment.pk %}">More Info</a>
                         {% if user.is_superuser %}
@@ -50,3 +71,4 @@
 {% block footer %}
 {% include 'partials/footer.html' %}
 {% endblock %}
+
