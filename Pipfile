@@ -9,7 +9,7 @@ verify_ssl = true
 psycopg2-binary = "*"
 django-bootstrap4 = "*"
 ipython = "*"
-django-filter = "*"
+# django-filter = "*"
 django-heroku = "*"
 Django = ">=3.0.2"
 # django-filters = "*"
