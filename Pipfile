@@ -12,7 +12,7 @@ ipython = "*"
 django-filter = "*"
 django-heroku = "*"
 Django = ">=3.0.2"
-django-filters = "*"
+# django-filters = "*"
 
 [requires]
 python_version = "3.8"
